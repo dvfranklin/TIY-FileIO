@@ -13,7 +13,12 @@ public class BookTracker {
 
             try {
                 Gson gson = new GsonBuilder().create();
+
                 File bookFile = new File("bookfile.json");
+                if(!bookFile.exists()){
+                    bookFile.createNewFile();
+                }
+
                 Scanner fileInput = new Scanner(bookFile);
                 fileInput.useDelimiter("\\Z");
                 Book book = new Book();
